@@ -6,27 +6,26 @@ import ModelLoader from './ModelLoader';
 import * as THREE from 'three'
 
 const ModelView = ({
-    index, groupRef, gsapType, ControlRef, setRotationSize, size, item
+    index, groupRef, gsapType, controlRef, setRotationState, size, item
 }) => {
   return (
     <View
     index={index}
     id={gsapType}
-    className={`w-full h-full
-    ${index ===2 } ? 'right-[-100%] : ''`}
-    >
+    className={`w-full h-full absolute ${index === 2 ? 'right-[-100%]' : ''}`}
+  >
 
     {/* Ambient light  */}
     <ambientLight intensity={0.3}/>
 
-    <PerspectiveCamera makeDefault position={[0,0,4]}/>
+    <PerspectiveCamera makeDefault position={[0, 0, 4]} />
 
     <Lights/>
 
 
     <OrbitControls
         makeDefault
-        ref={ControlRef}
+        ref={controlRef}
         enableZoom={false}
         enablePan={false}
         rotateSpeed={0.4}
